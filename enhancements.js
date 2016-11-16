@@ -4,7 +4,7 @@ $(function() {
 
 		// Add FREE shipping callout
 		var pdpShippingMsg = "";
-		
+
 		$('head').append('<style>.free-shipping-pdp {background-color: #ebebeb; border-bottom: 1px solid #dadbdb; color: #444; font-family: GalaxieCondensedMedium,Arial,sans-serif; font-size: 15px; margin: -26px -30px 20px; padding: 20px; text-align: center; } .free-shipping-pdp .sale-banner__link.free-shipping_icon {padding-left: 42px; } .free-shipping-pdp .sale-banner__link.free-shipping_icon:before {left: 0; } .free-shipping-pdp .sale-banner__link {margin-right: 0; } .free-shipping-pdp a {color: #e72020; text-decoration: none; text-transform: uppercase; } .free-shipping-pdp a:hover {text-decoration: underline; } @media (min-width: 600px) {.mfp-content {max-width: 60% !important; } }</style>');
 
 		pdpShippingMsg += '<div class="free-shipping-pdp">';
@@ -43,25 +43,29 @@ $(function() {
 			brandLogoUrl = "https:" + $brandLogo.attr('src') + "?wid=120&resMode=sharp2";
 			$('#temp-header')
 				.css({
-					"background-image" : "url(" + brandLogoUrl + ")",
-					"padding-left" : "150px"
+					"background-image": "url(" + brandLogoUrl + ")",
+					"padding-left": "150px"
 				});
 		}
 
 		// relocate Ratings
 		$('.product-detail__user-reviews .rating.rating_small')
 			.css({
-				"margin-top" : "12px",
-				"width" : "140px"
+				"margin-top": "12px",
+				"width": "140px"
 			})
 			.appendTo('#temp-ctas');
 
 		// relocate Wish List trigger
 		$('div[data-module-type=AddToWishList]')
-			.css({"display" : "inline-block"})
+			.css({
+				"display": "inline-block"
+			})
 			.appendTo('#temp-ctas');
 		$('div[data-module-type=AddToWishList] .product-detail__button')
-			.css({"font-family" : "GalaxieCondensedMedium,arial,sans-serif"});
+			.css({
+				"font-family": "GalaxieCondensedMedium,arial,sans-serif"
+			});
 
 		// relocate View Description anchor
 		$('button[data-module-type=FindInStore]').after('<div class="desc-link-wrapper"></div>');
@@ -82,10 +86,10 @@ $(function() {
 	var PLPstyleInjection = function() {
 		$('head').append('<style>.product-quickview-btn {display: none; }</style>');
 	}
-  
+
 	var allPagesStyleInjection = function() {
-    	$('head').append('<style>.footer-section__trigger { display: none; } .footer-section__menu-content { max-height: 1000px; transition: all 0s ease 0s;}</style>');
-  	}
+		$('head').append('<style>.footer-section__trigger { display: none; } .footer-section__menu-content { max-height: 1000px; transition: all 0s ease 0s;}</style>');
+	}
 
 	var isOldHockeyStickPDP = function() {
 		var returnVal = false;
@@ -102,13 +106,13 @@ $(function() {
 			if (canonical != undefined) {
 				URL = canonical;
 			}
-			
-			returnVal = URL.indexOf(streetHockeySticks) > -1
-				|| URL.indexOf(hockeySticks) > -1
-				|| URL.indexOf(juniorSticks) > -1
-				|| URL.indexOf(seniorSticks) > -1
-				|| URL.indexOf(mediumSticks) > -1
-				|| URL.indexOf(goalieSticks) > -1;
+
+			returnVal = URL.indexOf(streetHockeySticks) > -1 ||
+				URL.indexOf(hockeySticks) > -1 ||
+				URL.indexOf(juniorSticks) > -1 ||
+				URL.indexOf(seniorSticks) > -1 ||
+				URL.indexOf(mediumSticks) > -1 ||
+				URL.indexOf(goalieSticks) > -1;
 
 		}
 
@@ -124,7 +128,7 @@ $(function() {
 	}
 
 	var cartStyleInjection = function() {
-		$('head').append('<style>.cart-callout .sale-banner__link.free-shipping_icon {padding-left: 42px; } .cart-callout .sale-banner__link.free-shipping_icon {font-family: GalaxieCondensedMedium, arial, sans-serif; text-transform: uppercase; margin-top: 0; line-height: 1.3; } .cart-callout .sale-banner__link.free-shipping_icon:before {top: 10px; left: 0; } .cart-callout .sale-banner__link {margin-right: 0; } .cart-callout {border: 1px solid red; margin-top: 20px; padding: 20px; } .cart-callout p {color: #666; font-family: GalaxieCondensedMedium, arial, sans-serif; font-size: 14px; margin-bottom: 0; } .sc-product__information.drawer-ui { display: none;}</style>');
+		$('head').append('<style>.cart-callout .sale-banner__link.free-shipping_icon {padding-left: 42px; } .cart-callout .sale-banner__link.free-shipping_icon {font-family: GalaxieCondensedMedium, arial, sans-serif; text-transform: uppercase; margin-top: 0; line-height: 1.3; } .cart-callout .sale-banner__link.free-shipping_icon:before {top: 10px; left: 0; } .cart-callout .sale-banner__link {margin-right: 0; } .cart-callout {border: 1px solid red; margin-top: 20px; padding: 20px; } .cart-callout p {color: #666; font-family: GalaxieCondensedMedium, arial, sans-serif; font-size: 14px; margin-bottom: 0; } .sc-product__information.drawer-ui, .sc-product__control-move-to-wishlist, .sc-product__control__slash { display: none;}</style>');
 	}
 
 	var addShippingCalculator = function() {
@@ -142,57 +146,57 @@ $(function() {
 			event.preventDefault();
 			$('.sale-banner__link.free-shipping_icon').trigger('click');
 		});
-    
-	}
-  
-  var hideOldPromo = function() {
-    
-    var timeCheck = 0;
-    var stopChecking = 10;
-    
-    var checkForPromo = setInterval(function() {
 
-    		var $oldPromo = $('div[data-module-type=OrderPromotion]').find('.co-promote-message__wrap:contains("Shipping")');
-    		if ($oldPromo.length) {
-          	clearInterval(checkForPromo);
-     				$oldPromo.parent().parent().css('display', 'none'); 
-        } else if (++timeCheck > stopChecking) {
-         	clearInterval(checkForPromo); 
-        }
-    }, 500);
-  }
-  
+	}
+
+	var hideOldPromo = function() {
+
+		var timeCheck = 0;
+		var stopChecking = 10;
+
+		var checkForPromo = setInterval(function() {
+
+			var $oldPromo = $('div[data-module-type=OrderPromotion]').find('.co-promote-message__wrap:contains("Shipping")');
+			if ($oldPromo.length) {
+				clearInterval(checkForPromo);
+				$oldPromo.parent().parent().css('display', 'none');
+			} else if (++timeCheck > stopChecking) {
+				clearInterval(checkForPromo);
+			}
+		}, 500);
+	}
+
 	if (window.location.href.indexOf('defaultexp=true') == -1) {
 
 		// PDP changes
 		if (window.location.href.indexOf('/product/') > -1) {
-	  
-	  		universalChanges();
 
-	  		if ($(document).width() > 768) {
+			universalChanges();
+
+			if ($(document).width() > 768) {
 				PDPstyleInjection();
 				manipulateDOM();
-	  		}
+			}
 
-	  		if (isOldHockeyStickPDP()) {
-	  			stickFix();
-	  		}
+			if (isOldHockeyStickPDP()) {
+				stickFix();
+			}
 
-	  		$('body').addClass('DTMenhancedPDPcomplete');
+			$('body').addClass('DTMenhancedPDPcomplete');
 		} else if (window.location.href.indexOf('shopping-cart.html') > -1) {
 			cartStyleInjection();
 			addShippingCalculator();
-      			hideOldPromo();
+			hideOldPromo();
 		}
 
-	// PLP changes
-	// hide quickview elements
-	PLPstyleInjection();
-   	allPagesStyleInjection();
-    
-    	if (window.location.href.indexOf('332074441') > -1) {
-    		$('.product-detail__add-cart').remove(); 
-    	}
+		// PLP changes
+		// hide quickview elements
+		PLPstyleInjection();
+		allPagesStyleInjection();
+
+		if (window.location.href.indexOf('332074441') > -1) {
+			$('.product-detail__add-cart').remove();
+		}
 	}
 
 });
