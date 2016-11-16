@@ -124,7 +124,7 @@ $(function() {
 	}
 
 	var cartStyleInjection = function() {
-		$('head').append('<style>.cart-callout .sale-banner__link.free-shipping_icon {padding-left: 42px; } .cart-callout .sale-banner__link.free-shipping_icon {font-family: GalaxieCondensedMedium, arial, sans-serif; text-transform: uppercase; margin-top: 0; line-height: 1.3; } .cart-callout .sale-banner__link.free-shipping_icon:before {top: 10px; left: 0; } .cart-callout .sale-banner__link {margin-right: 0; } .cart-callout {border: 1px solid red; margin-top: 20px; padding: 20px; } .cart-callout p {color: #666; font-family: GalaxieCondensedMedium, arial, sans-serif; font-size: 14px; margin-bottom: 0; }</style>');
+		$('head').append('<style>.cart-callout .sale-banner__link.free-shipping_icon {padding-left: 42px; } .cart-callout .sale-banner__link.free-shipping_icon {font-family: GalaxieCondensedMedium, arial, sans-serif; text-transform: uppercase; margin-top: 0; line-height: 1.3; } .cart-callout .sale-banner__link.free-shipping_icon:before {top: 10px; left: 0; } .cart-callout .sale-banner__link {margin-right: 0; } .cart-callout {border: 1px solid red; margin-top: 20px; padding: 20px; } .cart-callout p {color: #666; font-family: GalaxieCondensedMedium, arial, sans-serif; font-size: 14px; margin-bottom: 0; } .sc-product__information.drawer-ui { display: none;}</style>');
 	}
 
 	var addShippingCalculator = function() {
@@ -182,13 +182,13 @@ $(function() {
 		} else if (window.location.href.indexOf('shopping-cart.html') > -1) {
 			cartStyleInjection();
 			addShippingCalculator();
-      hideOldPromo();
+      			hideOldPromo();
 		}
 
-		// PLP changes
-		// hide quickview elements
-		PLPstyleInjection();
-   		allPagesStyleInjection();
+	// PLP changes
+	// hide quickview elements
+	PLPstyleInjection();
+   	allPagesStyleInjection();
     
     	if (window.location.href.indexOf('332074441') > -1) {
     		$('.product-detail__add-cart').remove(); 
